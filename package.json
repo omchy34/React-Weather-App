@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://gitname.github.io/React-Weather-App",
+  "homepage": "https://omchy34.github.io/React-Weather-App",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
