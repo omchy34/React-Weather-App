@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 function App() {
@@ -11,16 +10,15 @@ function App() {
   }
 
   function HanddleClick() {
-    let fetchData = fetch(
-      `http://api.weatherapi.com/v1/current.json?key=01d326756aea402aa4c122534241004&q=${input}&aqi=no`
-    );
-    fetchData
-      .then((reponse) => {
-        return reponse.json();
+    fetch(`https://api.weatherapi.com/v1/current.json?key=01d326756aea402aa4c122534241004&q=${input}&aqi=no`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
       })
       .then((value) => {
-        // console.log([value]);
-        const {current , location } = value;
+        const { current, location } = value;
         let DATA = {
           city: location.name,
           temp: current.temp_c,
@@ -29,46 +27,34 @@ function App() {
         };
         setWeatherData(DATA);
       })
-      .catch(function (error) {
-        console.log(`city is not avaible else err fetching data ${error}`);
+      .catch((error) => {
+        console.log(`City is not available or error fetching data: ${error}`);
       });
   }
 
-  console.log(weatherData);
   return (
-    <>
-      <div className="main">
-        <div className="container">
-          <div className="search">
-            <input
-              type="text"
-              id="input"
-              value={input}
-              onChange={HanddleChange}
-            />
-            <button>
-              <i
-                className="fa-solid fa-magnifying-glass"
-                id="search-btn"
-                onClick={HanddleClick}
-              ></i>
-            </button>
-          </div>
+    <div className="main">
+      <div className="container">
+        <div className="search">
+          <input type="text" value={input} onChange={HanddleChange} />
+          <button onClick={HanddleClick}>
+            <i className="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
 
-          <div className="weather-data">
-            <img src="png.png" alt="no img found" />
-            <p id="temp">{weatherData ? `${weatherData.temp}°C` : "00°C"}</p>
-            <p id="city-name">{weatherData ? weatherData.city : "City Name"}</p>
-          </div>
-          <div className="weather-extrnl">
-            <i className="fa-solid fa-wind" id="om"></i>
-            <p id="wind">{weatherData ? `${weatherData.wind} KM/H` : "00KM/H"}</p>
-            <img src="humidity.png" alt="no images found" />
-            <p id="humidity">{weatherData ? `${weatherData.humidity}%` : "00%"}</p>
-          </div>
+        <div className="weather-data">
+          <img src={`${process.env.PUBLIC_URL}/png.png`} alt="Weather icon" />
+          <p>{weatherData ? `${weatherData.temp}°C` : "00°C"}</p>
+          <p>{weatherData ? weatherData.city : "City Name"}</p>
+        </div>
+        <div className="weather-extrnl">
+          <i className="fa-solid fa-wind"></i>
+          <p>{weatherData ? `${weatherData.wind} KM/H` : "00KM/H"}</p>
+          <img src={`${process.env.PUBLIC_URL}/humidity.png`} alt="Humidity icon" />
+          <p>{weatherData ? `${weatherData.humidity}%` : "00%"}</p>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
