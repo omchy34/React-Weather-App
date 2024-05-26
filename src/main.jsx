@@ -1,12 +1,12 @@
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import './index.css'
 
-import React from '/React-Weather-App/react.production.min.js';
-import ReactDOM from '/React-Weather-App/react-dom.production.min.js';
-
-import App from './App'; // Assuming your main React component is in App.jsx
-
-ReactDOM.render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <Router basename="Music-App">
+      <App />
+    </Router>
   </React.StrictMode>,
-  document.getElementById('root')
 )
