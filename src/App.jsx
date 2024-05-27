@@ -50,7 +50,7 @@ function App() {
         <div className="weather-extrnl">
           <i className="fa-solid fa-wind"></i>
           <p>{weatherData ? `${weatherData.wind} KM/H` : "00KM/H"}</p>
-          <img src="https://cdn4.iconfinder.com/data/icons/the-weather-is-nice-today/64/weather_12-256.png" alt="Humidity icon" />
+          <img src="https://cdn4.iconfinder.com/data/icons/the-weather-is-nice-today/64/weather_12-256.png" alt="Humidity" />
           <p>{weatherData ? `${weatherData.humidity}%` : "00%"}</p>
         </div>
       </div>
