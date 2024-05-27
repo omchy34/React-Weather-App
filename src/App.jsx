@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
+import WeatherIcon from './png.png';
+import HumidityIcon from './humidity.png';
 
 function App() {
   const [input, setInput] = useState("");
@@ -43,14 +45,14 @@ function App() {
         </div>
 
         <div className="weather-data">
-          <img src={`${process.env.PUBLIC_URL}/png.png`} alt="Weather icon" />
+          <img src={WeatherIcon} alt="Weather icon" />
           <p>{weatherData ? `${weatherData.temp}°C` : "00°C"}</p>
           <p>{weatherData ? weatherData.city : "City Name"}</p>
         </div>
         <div className="weather-extrnl">
           <i className="fa-solid fa-wind"></i>
           <p>{weatherData ? `${weatherData.wind} KM/H` : "00KM/H"}</p>
-          <img src="./humidity.png" alt="Humidity icon" />
+          <img src={HumidityIcon} alt="Humidity icon" />
           <p>{weatherData ? `${weatherData.humidity}%` : "00%"}</p>
         </div>
       </div>
