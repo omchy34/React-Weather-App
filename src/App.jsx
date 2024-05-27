@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import "../public"
 
 function App() {
   const [input, setInput] = useState("");
