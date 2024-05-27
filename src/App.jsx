@@ -43,14 +43,14 @@ function App() {
         </div>
 
         <div className="weather-data">
-          <img src="/png.png" alt="Weather icon" />
+          <img src="../public/png.png" alt="Weather icon" />
           <p>{weatherData ? `${weatherData.temp}°C` : "00°C"}</p>
           <p>{weatherData ? weatherData.city : "City Name"}</p>
         </div>
         <div className="weather-extrnl">
           <i className="fa-solid fa-wind"></i>
           <p>{weatherData ? `${weatherData.wind} KM/H` : "00KM/H"}</p>
-          <img src="/humidity.png" alt="Humidity icon" />
+          <img src="../public/humidity.png" alt="Humidity icon" />
           <p>{weatherData ? `${weatherData.humidity}%` : "00%"}</p>
         </div>
       </div>
