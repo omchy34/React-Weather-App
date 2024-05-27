@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
-import WeatherIcon from './png.png';
-import HumidityIcon from './humidity.png';
+import WeatherIcon from './images/png.png';
+import HumidityIcon from './images/humidity.png';
 
 function App() {
   const [input, setInput] = useState("");
