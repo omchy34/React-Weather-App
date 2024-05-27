@@ -43,7 +43,7 @@ function App() {
         </div>
 
         <div className="weather-data">
-          <img src="../public/png.png" alt="Weather icon" />
+          <img src="https://cdn4.iconfinder.com/data/icons/the-weather-is-nice-today/64/weather_49-256.png" alt="Weather icon" />
           <p>{weatherData ? `${weatherData.temp}°C` : "00°C"}</p>
           <p>{weatherData ? weatherData.city : "City Name"}</p>
         </div>
